@@ -58,20 +58,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const pdfUrl = 'https://sveinbjorn.dev/SveinbjornGeirsson.pdf';
             const pdfViewer = document.getElementById('pdfViewer');
             const loadingMessage = document.getElementById('loadingMessage');
-            
-            // Use Mozilla's hosted PDF.js viewer
-            const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
-            
-            pdfViewer.src = viewerUrl;
-            
+
+            pdfViewer.src = 'SveinbjornGeirsson.pdf';
+
             pdfViewer.onload = function() {
                 loadingMessage.style.display = 'none';
                 pdfViewer.style.display = 'block';
             };
-            
+
             pdfViewer.onerror = function() {
                 loadingMessage.innerHTML = '<div class="error"><h2>Error loading PDF</h2><p>Could not load the PDF file.</p></div>';
             };
